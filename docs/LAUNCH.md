@@ -13,20 +13,21 @@ See [GitHub's release documentation](https://docs.github.com/en/repositories/rel
 
 Repository description:
 
-> Hit your limit. Keep your place. Usage-aware checkpoints for AI coding tasks. Currently for Codex.
+> Help your coding agent save its progress before it hits a usage limit. Currently for Codex.
 
 Keep the name **Soft Landing**. Use **Currently for Codex** beside the broad
 headline. This makes the current audience clear while leaving room for future
 adapters. Do not advertise support for other agents yet. Track requests for Claude
 Code and other clients, then expand after installation and real task behavior are verified.
 
-## The message to repeat
+## Explain the problem in plain terms
 
-**Hit your limit. Keep your place.**
+**Help your coding agent save its progress before it hits a usage limit.**
 
-Lead with the moment people recognize: a useful coding session interrupted by a
-usage limit. Then show the saved next step. Checkpoints and quota monitoring explain
-how it works; an easier return to the task is the reason to try it.
+Describe a task interrupted by a usage limit, then show the saved next step.
+Explain what the handoff contains: completed work, checks, open issues and where
+to continue. Let the example demonstrate the benefit. Avoid promises that no work
+will ever be lost or claims about time saved without actual measurements.
 
 Start with Codex users who already hit limits during longer tasks. Someone who
 rarely reaches a limit has less reason to add another tool. Ask for one small trial:
@@ -73,11 +74,11 @@ reports with OS, architecture, version and a redacted error are enough.
 
 Ready to post after the release is available:
 
-> Hit your limit. Keep your place.
+> I built Soft Landing to help Codex save a useful handoff before a usage limit interrupts a task.
 >
-> I built Soft Landing: quota warnings, saved checkpoints, easier restarts.
+> It records progress and the next step, then checks the files when you resume.
 >
-> Local. MIT licensed. Early beta for Windows and Mac.
+> Windows + Mac beta. MIT licensed.
 >
 > https://github.com/c0ntrix/soft-landing
 

@@ -1,4 +1,4 @@
-# Hit your limit. Keep your place.
+# Save a handoff before a usage limit interrupts the task
 
 Soft Landing is a local skill and controller for Codex tasks. It warns the agent
 as quota gets low, saves checkpoints and helps it resume from verified state.

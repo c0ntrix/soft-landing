@@ -1,17 +1,17 @@
-<p align="center"><img src="docs/banner.svg" alt="Soft Landing. Less lost context. Easier restarts." width="880"></p>
+<p align="center"><img src="docs/banner.svg" alt="Soft Landing. Quota warnings, checkpoints and manual resume." width="880"></p>
 <h1 align="center">Soft Landing</h1>
-<p align="center"><strong>Hit your limit. Keep your place.</strong></p>
-<p align="center">Usage-aware checkpoints for AI coding tasks. <strong>Currently for Codex.</strong></p>
+<p align="center"><strong>Help your coding agent save its progress before it hits a usage limit.</strong></p>
+<p align="center">A local skill and controller. <strong>Currently for Codex.</strong></p>
 <p align="center"><a href="https://github.com/c0ntrix/soft-landing/releases">Download</a> &middot; <a href="INSTALLATION.md">Install</a> &middot; <a href="docs/CLI.md">CLI guide</a> &middot; <a href="https://github.com/c0ntrix/soft-landing/issues">Feedback</a></p>
 
-Halfway through a fix. Finally making progress. Then: **usage limit reached.**
+A usage limit can interrupt a task while the agent is still working. When you
+return, you need to know which changes are finished, which checks actually ran,
+and what still needs attention.
 
-Coming back shouldn't mean piecing the task together again. Soft Landing watches
-your Codex allowance and asks the agent to save a checkpoint before it gets too low:
-what's done, what's still open, and what to do next. When you're ready, resume with
-a saved handoff and a check of the actual files.
-
-**Less "where were we?" More picking up where you left off.**
+Soft Landing watches your Codex allowance and asks the agent to write that handoff
+while it still has room to respond. It saves checkpoints during the task, requests
+a pause when quota gets low, and checks the saved state against your files when
+you resume. The aim is to spend less time reconstructing the task before continuing.
 
 ## Install
 
