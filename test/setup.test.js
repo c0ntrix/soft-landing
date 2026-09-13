@@ -1,7 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, symlinkSync, writeFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { findCodex } from '../src/environment.js';
 import { doctor } from '../src/doctor.js';
@@ -52,5 +54,16 @@ test('saved-task listing handles empty projects and keeps damaged entries visibl
     assert.equal(runs.length, 2);
     assert.equal(runs.find(r => r.id === 'first').goal, 'resume this');
     assert.equal(runs.find(r => r.id === 'broken').status, 'unreadable');
+  } finally { rmSync(root, { recursive: true, force: true }); }
+});
+
+test('CLI executes when invoked through a directory alias', () => {
+  const root = mkdtempSync(join(tmpdir(), 'landing-cli-alias-'));
+  try {
+    const alias = join(root, 'aliased app');
+    symlinkSync(fileURLToPath(new URL('..', import.meta.url)), alias, process.platform === 'win32' ? 'junction' : 'dir');
+    const result = spawnSync(process.execPath, [join(alias, 'src/cli.js'), '--help'], { encoding: 'utf8', windowsHide: true, timeout: 10000 });
+    assert.equal(result.status, 0, result.stderr);
+    assert.match(result.stdout, /Usage:/);
   } finally { rmSync(root, { recursive: true, force: true }); }
 });

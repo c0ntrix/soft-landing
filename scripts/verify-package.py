@@ -18,7 +18,7 @@ def run(args, expected=0, **kwargs):
         raise AssertionError(f'{args}: exit {result.returncode}\n{result.stdout}\n{result.stderr}')
     return result.stdout
 
-def verify(target):
+def verify(target, codex_check=False):
     native = 'windows-x64' if os.name == 'nt' else 'macos-arm64' if platform.machine() == 'arm64' else 'macos-x64'
     assert target == native, f'Run {target} package on its native OS/architecture, not {native}'
     archive = ROOT / 'dist' / f'soft-landing-{VERSION}-{target}.zip'
@@ -40,7 +40,7 @@ def verify(target):
         assert actual == set(manifest) | {'CONTENTS.sha256.json'}
         for name, digest in manifest.items():
             assert hashlib.sha256((package / name).read_bytes()).hexdigest() == digest, name
-        skill_root, desktop = base / 'personal skills', base / 'desktop'
+        skill_root, desktop = base / 'isolated codex' / 'skills', base / 'desktop'
         installed = skill_root / 'soft-landing'
         if os.name == 'nt':
             command = ['powershell.exe', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', package / 'install.ps1', '-SkillRoot', skill_root, '-ShortcutDirectory', desktop, '-NoCheck']
@@ -75,9 +75,16 @@ def verify(target):
         assert result['ok'] is False and result['canStart'] is False
         # Exercise the installed controller via a real stdio process with fake quota.
         run([node, ROOT / 'scripts/package-smoke.js', app, project])
+        if codex_check:
+            setup = json.loads(run([node, cli, 'doctor', '--json']))
+            assert setup['ok'], setup
+            run([node, ROOT / 'scripts/verify-skill-discovery.js', app, skill_root.parent, project])
+            print('PASS real Codex: setup/account read and installed skill discovery, no model calls')
         print(f'PASS {target}: manifest, install, bundled runtime, menu, status, conflict preservation, doctor, start/resume')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--platform', required=True, choices=['windows-x64', 'macos-arm64', 'macos-x64'])
-    verify(parser.parse_args().platform)
+    parser.add_argument('--codex-check', action='store_true', help='Also verify a locally signed-in Codex and skill discovery; no model calls')
+    args = parser.parse_args()
+    verify(args.platform, args.codex_check)

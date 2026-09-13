@@ -84,4 +84,4 @@ export async function main(args = process.argv.slice(2)) {
   } finally { process.off('SIGINT', onSignal); await controller?.close(); lock.release(); }
 }
 import { validateConfig as loadSavedConfig } from './config.js';
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) main().catch(error => { console.error(`Soft Landing: ${error.message}`); process.exitCode = 1; });
+if (process.argv[1] && import.meta.url === pathToFileURL(realpathSync(resolve(process.argv[1]))).href) main().catch(error => { console.error(`Soft Landing: ${error.message}`); process.exitCode = 1; });
