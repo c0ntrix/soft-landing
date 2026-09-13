@@ -1,0 +1,18 @@
+{
+  "name": "soft-landing",
+  "version": "0.2.0-beta.1",
+  "description": "A skill to help Codex save its place before your quota runs out.",
+  "author": {
+    "name": "c0ntrix"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Soft Landing",
+    "shortDescription": "Less lost context. Easier restarts.",
+    "longDescription": "Start Codex tasks with quota warnings, local checkpoints and manual resume. Only tasks started through Soft Landing are managed.",
+    "developerName": "c0ntrix",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Help me use Soft Landing."
+  }
+}
