@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, readFileSync, writeFileSync, rmSync, existsSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, symlinkSync, readFileSync, writeFileSync, rmSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { RunStore, acquireLock, unlock, atomicJson, snapshot, parseCheckpoints } from '../src/store.js';
@@ -36,4 +36,20 @@ test('checkpoints reject incomplete or malformed fields; outside paths not read'
   assert.throws(() => parseCheckpoints('<soft-landing-checkpoint>broken</soft-landing-checkpoint>'));
   assert.deepEqual(parseCheckpoints('ordinary message'), []);
   assert.equal(snapshot(process.cwd(), ['../outside.txt']).files['../outside.txt'], 'outside workspace; inspect manually');
+});
+
+test('workspace aliases preserve file hashes while links escaping the workspace remain excluded', () => {
+  const root = mkdtempSync(join(tmpdir(), 'landing-alias-'));
+  try {
+    const workspace = join(root, 'workspace'), outside = join(root, 'outside'), alias = join(root, 'alias');
+    mkdirSync(workspace); mkdirSync(outside);
+    writeFileSync(join(workspace, 'inside.txt'), 'inside');
+    writeFileSync(join(outside, 'private.txt'), 'outside');
+    const type = process.platform === 'win32' ? 'junction' : 'dir';
+    symlinkSync(workspace, alias, type);
+    symlinkSync(outside, join(workspace, 'external'), type);
+    const result = snapshot(alias, ['inside.txt', 'external/private.txt']);
+    assert.match(result.files['inside.txt'].sha256, /^[a-f0-9]{64}$/);
+    assert.equal(result.files['external/private.txt'], 'symlink outside workspace; inspect manually');
+  } finally { rmSync(root, { recursive: true, force: true }); }
 });

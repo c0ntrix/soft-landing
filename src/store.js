@@ -34,6 +34,9 @@ export function unlock(cwd) {
   unlinkSync(file);
 }
 export function snapshot(cwd, files = []) {
+  // macOS /var and user-selected symlink paths may alias the real workspace.
+  // Compare canonical roots so an in-project file is not rejected as outside.
+  cwd = realpathSync(cwd);
   const result = { at: new Date().toISOString(), git: null, files: {} };
   const git = spawnSync('git', ['status', '--porcelain=v1', '--untracked-files=normal'], { cwd, encoding: 'utf8', windowsHide: true, timeout: 10000, maxBuffer: 1024 * 1024 });
   result.git = git.status === 0 ? git.stdout : 'unavailable (not a Git worktree or git failed)';
