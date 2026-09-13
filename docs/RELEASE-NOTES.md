@@ -3,6 +3,8 @@
 Soft Landing is a local skill and controller for Codex tasks. It warns the agent
 as quota gets low, saves checkpoints and helps it resume from verified state.
 
+**Currently Codex only. Support for more coding agents is coming soon.**
+
 ## Download and install
 
 Choose **windows-x64**, **macos-arm64** (Apple Silicon), or **macos-x64** (Intel).

@@ -1,7 +1,7 @@
 <p align="center"><img src="docs/banner.svg" alt="Soft Landing. Quota warnings, checkpoints and manual resume." width="880"></p>
 <h1 align="center">Soft Landing</h1>
 <p align="center"><strong>Help your coding agent save its progress before it hits a usage limit.</strong></p>
-<p align="center">A local skill and controller. <strong>Currently for Codex.</strong></p>
+<p align="center"><strong>Currently Codex only.</strong> Support for more coding agents is coming soon.</p>
 <p align="center"><a href="https://github.com/c0ntrix/soft-landing/releases">Download</a> &middot; <a href="INSTALLATION.md">Install</a> &middot; <a href="docs/CLI.md">CLI guide</a> &middot; <a href="https://github.com/c0ntrix/soft-landing/issues">Feedback</a></p>
 
 A usage limit can interrupt a task while the agent is still working. When you

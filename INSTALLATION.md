@@ -2,6 +2,8 @@
 
 ## Supported clients
 
+**Currently Codex only. Support for more coding agents is coming soon.**
+
 | Client | Current support |
 | --- | --- |
 | Codex on Windows or Mac | Skill, desktop menu, quota monitoring, checkpoints and manual resume. Install below. |

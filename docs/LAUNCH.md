@@ -13,11 +13,11 @@ See [GitHub's release documentation](https://docs.github.com/en/repositories/rel
 
 Repository description:
 
-> Help your coding agent save its progress before it hits a usage limit. Currently for Codex.
+> Help your coding agent save its progress before it hits a usage limit. Currently Codex only. More coding agents coming soon.
 
-Keep the name **Soft Landing**. Use **Currently for Codex** beside the broad
-headline. This makes the current audience clear while leaving room for future
-adapters. Do not advertise support for other agents yet. Track requests for Claude
+Keep the name **Soft Landing**. Use **Currently Codex only. Support for more coding
+agents is coming soon.** beside the broad headline. This distinguishes current
+support from upcoming integrations. Track requests for Claude
 Code and other clients, then expand after installation and real task behavior are verified.
 
 ## Explain the problem in plain terms
