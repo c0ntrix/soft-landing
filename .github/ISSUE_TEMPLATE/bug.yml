@@ -1,0 +1,22 @@
+name: Report a bug
+description: Something did not work as expected.
+body:
+  - type: input
+    id: environment
+    attributes:
+      label: Your setup
+      description: OS, CPU architecture, Soft Landing version and Codex version.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: What happened?
+      description: Steps, expected result and actual result. Remove project secrets and account details.
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Error message
+      description: A short redacted excerpt. Do not attach your entire .soft-landing directory.
