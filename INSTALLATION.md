@@ -1,5 +1,25 @@
 # Install Soft Landing
 
+## Supported clients
+
+| Client | Current support |
+| --- | --- |
+| Codex on Windows or Mac | Skill, desktop menu, quota monitoring, checkpoints and manual resume. Install below. |
+| Claude Code | Not supported in this beta. Proposed next integration. |
+| Cursor, Gemini CLI and other coding agents | Not supported in this beta. |
+
+Soft Landing has a client-neutral name because the same need exists across coding
+tools. Its current controller uses Codex-specific usage and task APIs. Installing
+the skill in a different client does not monitor that client's quota or manage its tasks.
+
+The proposed expansion has two parts: a portable checkpoint/handoff skill, and
+client integrations for reported usage, warning delivery and resume. The portable
+part alone would provide agent-written handoffs, not automatic usage monitoring.
+Claude Code is the proposed next integration; no release date is promised.
+Each supported client will get its own install, verify, update and uninstall
+instructions after its behavior is tested. Share your client and workflow in
+[an issue](https://github.com/c0ntrix/soft-landing/issues) to help prioritize support.
+
 ## 1. Get the right download
 
 Open [Releases](https://github.com/c0ntrix/soft-landing/releases) and choose the latest
@@ -95,4 +115,3 @@ Do not start a model task just to validate installation.
 If a matching release is unavailable, report that rather than installing an incomplete
 skill folder. Maintainers can build with `python scripts/build-release.py --platform <target>`.
 For custom Codex paths, read [CLI setup](docs/CLI.md).
-

@@ -1,8 +1,17 @@
 <p align="center"><img src="docs/banner.svg" alt="Soft Landing. Less lost context. Easier restarts." width="880"></p>
 <h1 align="center">Soft Landing</h1>
-<p align="center"><strong>A skill to help Codex save its place before your quota runs out.</strong></p>
-<p align="center">Less lost context. Easier restarts.</p>
+<p align="center"><strong>Hit your limit. Keep your place.</strong></p>
+<p align="center">Usage-aware checkpoints for AI coding tasks. <strong>Currently for Codex.</strong></p>
 <p align="center"><a href="https://github.com/c0ntrix/soft-landing/releases">Download</a> &middot; <a href="INSTALLATION.md">Install</a> &middot; <a href="docs/CLI.md">CLI guide</a> &middot; <a href="https://github.com/c0ntrix/soft-landing/issues">Feedback</a></p>
+
+Halfway through a fix. Finally making progress. Then: **usage limit reached.**
+
+Coming back shouldn't mean piecing the task together again. Soft Landing watches
+your Codex allowance and asks the agent to save a checkpoint before it gets too low:
+what's done, what's still open, and what to do next. When you're ready, resume with
+a saved handoff and a check of the actual files.
+
+**Less "where were we?" More picking up where you left off.**
 
 ## Install
 
@@ -83,9 +92,11 @@ account allowance. A checkpoint is not a backup of file contents. Interactive
 approval dialogs and automatic resume are not supported. One completed turn does
 not necessarily mean the entire objective is done.
 
-Currently **Codex only**. Other coding-agent adapters are a possible future direction;
-there is no Claude Code, Cursor or universal agent support yet. This is an independent
-project, not an OpenAI product.
+Currently **Codex only**. The name stays open to other coding agents; the current
+quota monitoring and task controls use Codex's interface. Claude Code and other
+clients need their own integrations, not just a copied skill file. See the
+[client support and expansion path](INSTALLATION.md#supported-clients).
+This is an independent project, not an OpenAI product.
 
 ## Development
 
@@ -101,4 +112,3 @@ No npm dependencies. [Architecture](docs/INTEGRATION.md) -
 [Contributing](CONTRIBUTING.md) - [Changelog](CHANGELOG.md)
 
 If it made your next restart easier, a star or a concrete bug report helps.
-

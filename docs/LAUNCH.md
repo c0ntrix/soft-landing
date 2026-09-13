@@ -13,10 +13,50 @@ See [GitHub's release documentation](https://docs.github.com/en/repositories/rel
 
 Repository description:
 
-> A skill to help Codex save its place before your quota runs out. Less lost context. Easier restarts.
+> Hit your limit. Keep your place. Usage-aware checkpoints for AI coding tasks. Currently for Codex.
 
-Keep the name **Soft Landing**. Use **for Codex** in the description, leaving the
-name open to future adapters. Do not advertise support for other agents yet.
+Keep the name **Soft Landing**. Use **Currently for Codex** beside the broad
+headline. This makes the current audience clear while leaving room for future
+adapters. Do not advertise support for other agents yet. Track requests for Claude
+Code and other clients, then expand after installation and real task behavior are verified.
+
+## The message to repeat
+
+**Hit your limit. Keep your place.**
+
+Lead with the moment people recognize: a useful coding session interrupted by a
+usage limit. Then show the saved next step. Checkpoints and quota monitoring explain
+how it works; an easier return to the task is the reason to try it.
+
+Start with Codex users who already hit limits during longer tasks. Someone who
+rarely reaches a limit has less reason to add another tool. Ask for one small trial:
+install it, start a disposable task through it, inspect the checkpoint and resume.
+
+## A practical two-week launch
+
+| When | What to do | What to learn |
+| --- | --- | --- |
+| Days 1-3 | Invite five willing testers from people you know or an allowed beta-feedback thread. Include Windows, Apple Silicon and Intel users if possible. | Can they install, start and resume without a call? |
+| Days 4-5 | Fix the biggest setup problem. Record a 30-second demo with a simulated warning clearly labeled. | Does someone understand the benefit without an explanation? |
+| Day 6 | Publish the X post below with the demo and one link to the repo. Pin it to your profile. | What questions or objections come back? |
+| Days 7-8 | Share the Reddit post in one relevant community that permits project posts. Stay available to answer replies. | Is the pain familiar, and what would stop people trying it? |
+| Days 9-14 | Publish a short update showing one real fix from feedback. Follow up with consenting testers. | Did anyone use it again on another task? |
+
+Allow around 20 minutes a day for replies during launch. Use GitHub issues for
+reproducible bugs; ask people to remove private project text from reports. Keep
+downloads and instructions on GitHub so every post leads to the same next step.
+
+Demo outline: 0-5 seconds, show "Usage limit reached" as an illustrative problem;
+5-15 seconds, show a managed task receiving a **simulated quota warning**;
+15-25 seconds, open its checkpoint and resume; 25-30 seconds, show the install prompt.
+Use a disposable project. Record actual tool behavior and label any sped-up sections.
+
+Track a small weekly table manually: willing testers, completed installations,
+first successful resumes, repeat users and the three most common problems. GitHub
+download counts are a rough interest signal, not unique users or completed installs.
+Treat four of five testers installing unaided and three successfully resuming as
+initial targets, not product claims. If setup is confusing, improve it before
+expanding promotion. A separate site or paid ads can wait until repeat use is clear.
 
 ## Start with a small beta
 
@@ -33,7 +73,7 @@ reports with OS, architecture, version and a redacted error are enough.
 
 Ready to post after the release is available:
 
-> Your Codex quota runs out. Your place in the task shouldn't.
+> Hit your limit. Keep your place.
 >
 > I built Soft Landing: quota warnings, saved checkpoints, easier restarts.
 >

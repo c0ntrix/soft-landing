@@ -15,15 +15,15 @@ Raw development records may contain project text and are excluded from public do
 
 ## Current release
 
-The CI workflow targets Windows, macOS Apple Silicon and macOS Intel. Workflow
-definitions alone are not a successful test:
-[inspect actual Actions results](https://github.com/c0ntrix/soft-landing/actions).
+Windows, macOS Apple Silicon and macOS Intel each passed 40 offline tests and native
+package installation checks in this
+[successful CI run](https://github.com/c0ntrix/soft-landing/actions/runs/34783852040).
+The tag workflow repeats these checks before publishing downloads.
 
-[Package verification](PACKAGE-CHECK.md) records local results. Offline tests use
+[Package verification](PACKAGE-CHECK.md) records local and CI results. Offline tests use
 fake Codex responses with real local processes/files: thresholds, resets, sparse data,
 preflight races, RPC timeouts, disconnects, checkpoints, locks and resume checks.
 
 No guarantee of a timely stop or exactly-once external effects. No real quota
 exhaustion/reset, prolonged load or power-loss test. macOS CI does not establish
 real Codex sign-in, sandbox or model behavior on a user's Mac.
-
