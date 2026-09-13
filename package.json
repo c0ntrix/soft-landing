@@ -1,0 +1,11 @@
+{
+  "name": "codex-soft-landing",
+  "version": "0.2.0-beta.1",
+  "description": "Local quota-aware Codex session controller with durable handoffs",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "bin": { "soft-landing": "src/cli.js" },
+  "scripts": { "test": "node --test test/*.test.js", "probe": "node scripts/probe.js", "test:e2e": "node scripts/e2e.js", "start": "node src/cli.js" },
+  "license": "MIT"
+}

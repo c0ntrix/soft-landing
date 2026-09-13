@@ -1,0 +1,12 @@
+{
+  "warningRemaining": 20,
+  "handoffRemaining": 10,
+  "mode": "finish",
+  "pollSeconds": 60,
+  "staleSeconds": 180,
+  "graceSeconds": 120,
+  "limitIds": ["*"],
+  "sandbox": "workspace-write",
+  "model": null,
+  "effort": null
+}
